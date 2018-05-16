@@ -1,0 +1,5 @@
+\ProvidesFile{inzaneSyllabus-english.ldf}
+
+\@namedef{inzaneSyllabus@lang@instructorInfo}{Instructor Info}
+\@namedef{inzaneSyllabus@lang@courseInfo}{Course Info}
+\@namedef{inzaneSyllabus@lang@description}{Description}

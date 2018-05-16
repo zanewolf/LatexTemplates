@@ -1,0 +1,3 @@
+\ProvidesFile{inzaneSyllabus-UKenglish.ldf}
+
+\input{inzaneSyllabus-british.ldf}

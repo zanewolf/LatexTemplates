@@ -1,0 +1,5 @@
+\ProvidesFile{inzaneSyllabus-dutch.ldf}
+
+\@namedef{inzaneSyllabus@lang@instructorInfo}{Docentinformatie}%
+\@namedef{inzaneSyllabus@lang@courseInfo}{Vakinformatie}%
+\@namedef{inzaneSyllabus@lang@description}{Omschrijving}%
