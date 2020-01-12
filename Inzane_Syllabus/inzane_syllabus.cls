@@ -115,6 +115,33 @@
 }
 
 %----------------------------------------------------------------------------------------
+%	 SIDEBAR TRANSLATION FILES
+%----------------------------------------------------------------------------------------
+\AtEndPreamble{
+\ifdefined\inzaneSyllabus@lang%
+  \ifthenelse{\equal{\inzaneSyllabus@lang}{}}{%
+    \renewcommand{\inzaneSyllabus@lang}{\languagename}}{}%
+\else
+  \newcommand{\inzaneSyllabus@lang}{\languagename}%
+\fi
+\IfFileExists{inzaneSyllabus-\inzaneSyllabus@lang.ldf}{%
+  \makeatletter
+  \input{inzaneSyllabus-\inzaneSyllabus@lang.ldf}
+  \makeatother
+  \ClassWarning{inzane_syllabus}{Hi there! \inzaneSyllabus@lang
+  \inzaneSyllabus@lang@instructorInfo
+  \inzaneSyllabus@lang@courseInfo
+  \inzaneSyllabus@lang@description
+  }%
+}{%
+  \PackageWarning{inzane_syllabus}{%
+    No language definition for \inzaneSyllabus@lang found.
+    Please add one and submit a patch. Using English as fallback.}%
+  \renewcommand{\inzaneSyllabus@lang}{english}%
+  \input{inzane_syllabus-\inzaneSyllabus@lang.ldf}%
+}%
+}
+%----------------------------------------------------------------------------------------
 %	 SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
 
@@ -153,7 +180,7 @@
 
 		%------------------------------------------------
         
-        \profilesection{Instructor Info}      
+        \profilesection{\inzaneSyllabus@lang@instructorInfo}
         
         \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
         	\ifthenelse{\equal{\profname}{}}{}{\textsc{\Large\icon{\WomanFace}} & \profname\\}
@@ -164,7 +191,7 @@
 			\ifthenelse{\equal{\email}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\email}{\email}}
 		\end{tabular}
         
-        \profilesection{Course Info}
+        \profilesection{\inzaneSyllabus@lang@courseInfo}
         
         \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
 			\ifthenelse{\equal{\classhours}{}}{}{\textsc{\Large\icon{\ClockLogo}} & \classhours\\}            
@@ -173,7 +200,7 @@
         \end{tabular}
         
 		\ifthenelse{\equal{\about}{}}{}{
-			\profilesection{Description}
+			\profilesection{\inzaneSyllabus@lang@description}
 			\begin{flushleft}
 				\about
 			\end{flushleft}
